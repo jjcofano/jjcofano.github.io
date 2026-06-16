@@ -5,42 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Dossier Comercial | JJCofano</title>
     <style>
-        /* Reset y Fondo Base */
+        /* Reset y Fondo Base Estilo Gaming/Premium */
         body { 
             margin: 0; 
             padding: 0; 
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #0a0b10; 
+            background-color: #0d0e15; 
             color: #f3f4f6; 
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Luces de Neón de Fondo (Atrás del Cristal) */
+        /* Luces de Neón Traseras Ambientales */
         body::before, body::after {
             content: "";
             position: fixed;
-            width: 400px;
-            height: 400px;
+            width: 450px;
+            height: 450px;
             border-radius: 50%;
             z-index: -1;
-            filter: blur(120px);
-            opacity: 0.15;
+            filter: blur(130px);
+            opacity: 0.12;
             pointer-events: none;
         }
         body::before {
-            top: -100px;
-            right: -50px;
-            background: #ff0055; /* Rojo TikTok */
+            top: -120px;
+            right: -60px;
+            background: #ff0055; /* TikTok Magenta */
         }
         body::after {
-            bottom: -100px;
-            left: -50px;
-            background: #00f2fe; /* Azul Cyan */
+            bottom: -120px;
+            left: -60px;
+            background: #00f2fe; /* Instagram/Cyan Light */
         }
 
-        /* Contenedor Principal */
+        /* Contenedor */
         .wrapper { 
             max-width: 850px; 
             margin: 40px auto; 
@@ -48,7 +48,7 @@
             box-sizing: border-box;
         }
 
-        /* Banner Principal en Cristal */
+        /* Header Principal en Glassmorphism */
         .header-banner { 
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
@@ -56,39 +56,23 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             padding: 40px; 
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Reflejo de luz diagonal en el Banner */
-        .header-banner::before {
-            content: "";
-            position: absolute;
-            top: 0; left: -150%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-            transform: skewX(-25deg);
-            transition: 0.75s;
-        }
-        .header-banner:hover::before {
-            left: 150%;
+            margin-bottom: 35px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
         }
 
         .header-banner h1 { 
-            font-size: 36px; 
+            font-size: 38px; 
             font-weight: 800; 
             margin: 0 0 5px 0; 
             text-transform: uppercase; 
             letter-spacing: 1.5px; 
-            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+            background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .subtitle { 
-            font-size: 16px; 
+            font-size: 15px; 
             color: #9ca3af; 
             margin: 0 0 25px 0; 
             font-weight: 600; 
@@ -107,11 +91,11 @@
             color: #ff0055;
         }
 
-        /* Títulos de Sección */
+        /* Encabezados de Redes */
         h2 { 
-            font-size: 20px; 
+            font-size: 19px; 
             color: #ffffff; 
-            margin-top: 40px; 
+            margin-top: 45px; 
             margin-bottom: 20px; 
             text-transform: uppercase; 
             letter-spacing: 1px; 
@@ -120,32 +104,33 @@
             gap: 10px;
         }
 
-        /* Grid de Métricas */
+        .tiktok-title { border-left: 4px solid #ff0055; padding-left: 10px; }
+        .instagram-title { border-left: 4px solid #00f2fe; padding-left: 10px; }
+
+        /* Grids de bloques de métricas */
         .metrics-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap: 20px; 
-            margin-bottom: 35px; 
+            gap: 18px; 
+            margin-bottom: 25px; 
         }
 
-        /* Tarjetas de Cristal */
+        /* Tarjeta de Cristal Estilizada */
         .glass-card { 
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px; 
-            padding: 20px; 
+            padding: 22px 15px; 
             text-align: center; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .glass-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 35px rgba(255, 0, 85, 0.1);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.12);
         }
 
         .metric-val { 
@@ -153,22 +138,24 @@
             font-weight: 800; 
             color: #ffffff; 
             font-family: monospace;
+            letter-spacing: -0.5px;
         }
 
         .metric-lbl { 
             font-size: 11px; 
             color: #9ca3af; 
             text-transform: uppercase; 
-            margin-top: 5px; 
+            margin-top: 6px; 
             letter-spacing: 1px;
+            font-weight: 500;
         }
 
-        /* Columnas Flexibles */
+        /* Estructura Flexible para Audiencia y Países */
         .columns-flex { 
             display: flex; 
             flex-wrap: wrap; 
-            gap: 25px; 
-            margin-bottom: 35px; 
+            gap: 20px; 
+            margin-bottom: 40px; 
         }
 
         .col-cell { 
@@ -180,13 +167,22 @@
             padding: 25px;
         }
 
-        /* Listas Estilizadas */
-        ul { margin: 0; padding-left: 20px; }
-        li { margin-bottom: 12px; color: #d1d5db; }
-        li::marker { color: #ff0055; }
+        .col-cell h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Listas */
+        ul { margin: 0; padding-left: 18px; }
+        li { margin-bottom: 10px; color: #d1d5db; font-size: 14.5px; }
+        li::marker { color: #00f2fe; }
         .bold-text { font-weight: 600; color: #ffffff; }
 
-        /* Tabla de Precios Premium */
+        /* Contenedor de Tabla Premium */
         .table-container {
             overflow-x: auto;
             background: rgba(255, 255, 255, 0.02);
@@ -195,7 +191,7 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 16px;
             margin-bottom: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .price-table { 
@@ -217,17 +213,9 @@
         .price-table td { 
             padding: 20px 18px; 
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            vertical-align: middle; 
             font-size: 14px; 
             color: #e5e7eb;
-        }
-
-        .price-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .price-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
+            vertical-align: middle;
         }
 
         .price-badge { 
@@ -236,25 +224,23 @@
             font-size: 16px; 
             white-space: nowrap; 
             background: rgba(0, 242, 254, 0.1);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 8px;
             border: 1px solid rgba(0, 242, 254, 0.2);
         }
 
         /* Footer de Contacto */
         .footer-contact { 
-            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05) 0%, rgba(0, 242, 254, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.04) 0%, rgba(0, 242, 254, 0.04) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 20px; 
             padding: 35px; 
             margin-top: 50px; 
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Botón Líquido/Brillante */
         .btn-contact { 
             display: inline-block; 
             background: linear-gradient(135deg, #ff0055 0%, #ff5500 100%); 
@@ -263,29 +249,20 @@
             padding: 14px 35px; 
             font-weight: 700; 
             border-radius: 12px; 
-            margin-top: 20px; 
+            margin-top: 15px; 
             letter-spacing: 0.5px;
             box-shadow: 0 5px 20px rgba(255, 0, 85, 0.4);
-            transition: all 0.3s ease;
+            transition: opacity 0.2s ease;
         }
-
-        .btn-contact:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 0, 85, 0.6);
-            filter: brightness(1.1);
-        }
+        .btn-contact:hover { opacity: 0.9; }
 
         a { color: #00f2fe; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        /* Adaptabilidad Móvil */
+        
         @media (max-width: 600px) { 
-            .wrapper { margin: 15px auto; } 
-            .header-banner { padding: 25px 20px; border-radius: 16px; }
-            .header-banner h1 { font-size: 26px; }
-            .col-cell { padding: 15px; }
-            .price-table th, .price-table td { padding: 12px 10px; font-size: 13px; }
-            .price-badge { font-size: 14px; padding: 4px 8px; }
+            .wrapper { margin: 20px auto; } 
+            .header-banner { padding: 25px 20px; }
+            .header-banner h1 { font-size: 28px; }
+            .price-table th, .price-table td { padding: 14px 10px; font-size: 13px; }
         }
     </style>
 </head>
@@ -296,78 +273,75 @@
         <h1>Dossier Comercial</h1>
         <div class="subtitle">JJCOFANO | Creador de Contenido &amp; Comedia</div>
         <div class="tagline">
-            Especialista en entretenimiento y formatos dinámicos de alta retención. Con un alcance orgánico de gran impacto, la propuesta de valor radica en la integración orgánica y nativa de marcas a través de guiones estructurados en formato <strong>POV (Point of View)</strong> y situaciones cotidianas, transformando impactos publicitarios en contenido de alto engagement.
+            Especialista en entretenimiento y formatos dinámicos de alta retención. Con un ecosistema digital sólido que impacta masivamente a través de <strong>TikTok e Instagram</strong>, mi propuesta radica en la integración orgánica y nativa de marcas mediante comedia situacional, optimizando el alcance y potenciando la conversión de manera efectiva.
         </div>
     </div>
 
-    <h2>📊 Métricas de Rendimiento (Últimos 30 Días)</h2>
+    <h2 class="tiktok-title">📱 Rendimiento Orgánico en TikTok</h2>
     <div class="metrics-grid">
-        <div class="glass-card"><div class="metric-val">1.39 M</div><div class="metric-lbl">Visualizaciones</div></div>
+        <div class="glass-card"><div class="metric-val">1.39 M</div><div class="metric-lbl">Visualizaciones (Últimos 30 días)</div></div>
+        <div class="glass-card"><div class="metric-val">55.2K</div><div class="metric-lbl">Seguidores Totales</div></div>
+        <div class="glass-card"><div class="metric-val">1.1 M</div><div class="metric-lbl">Me Gusta Acumulados</div></div>
+    </div>
+
+    <h2 class="instagram-title">📸 Rendimiento y Engagement en Instagram</h2>
+    <div class="metrics-grid">
         <div class="glass-card"><div class="metric-val">607.2K</div><div class="metric-lbl">Cuentas Alcanzadas</div></div>
-        <div class="glass-card"><div class="metric-val">275.3K</div><div class="metric-lbl">Interacciones</div></div>
-        <div class="glass-card"><div class="metric-val">83.6%</div><div class="metric-lbl">Tráfico No Seguidores</div></div>
+        <div class="glass-card"><div class="metric-val">275.3K</div><div class="metric-lbl">Interacciones Totales</div></div>
+        <div class="glass-card"><div class="metric-val">27.7K</div><div class="metric-lbl">Contenido Compartido</div></div>
+        <div class="glass-card"><div class="metric-val">12.9K</div><div class="metric-lbl">Guardados de Reels</div></div>
     </div>
 
     <div class="columns-flex">
         <div class="col-cell">
-            <h2>👥 Perfil de la Audiencia</h2>
+            <h3>👥 Perfil Demográfico (Audiencia Ideal)</h3>
             <ul>
-                <li><span class="bold-text">Género:</span> 53% Masculino | 47% Femenino.</li>
-                <li><span class="bold-text">Rango de Edad Principal:</span>
+                <li><span class="bold-text">Distribución por Género:</span> 53% Masculino | 47% Femenino.</li>
+                <li><span class="bold-text">Segmento de Edad Clave:</span>
                     <ul>
                         <li>18 - 24 años: <span class="bold-text">37.5%</span></li>
                         <li>25 - 34 años: <span class="bold-text">29.5%</span></li>
                     </ul>
-                    <small style="color: #9ca3af;">(67% de la audiencia concentrada en edad adulta con capacidad de conversión).</small>
+                    <small style="color: #9ca3af; display:block; margin-top:5px;">(Más del 67% concentrado en público joven-adulto con alta afinidad al nicho de apuestas y deportes).</small>
                 </li>
             </ul>
         </div>
         <div class="col-cell">
-            <h2>🌐 Distribución Geográfica</h2>
+            <h3>🌐 Distribución Geográfica Global</h3>
             <ul>
-                <li><span class="bold-text">Venezuela:</span> 17.1%</li>
+                <li><span class="bold-text">Venezuela:</span> 17.1% (Principal núcleo de impacto local)</li>
                 <li><span class="bold-text">Colombia:</span> 11.4%</li>
                 <li><span class="bold-text">Estados Unidos:</span> 10.0%</li>
                 <li><span class="bold-text">México:</span> 8.9%</li>
-                <br>
-                <small style="color: #9ca3af;">Impacto estratégico enfocado en el mercado venezolano y comunidad latina internacional.</small>
             </ul>
+            <small style="color: #9ca3af; display:block; margin-top:5px;">Perfecto balance para captar usuarios en territorio venezolano y comunidad latina con alto poder de conversión.</small>
         </div>
     </div>
 
-    <h2>🎬 Ventajas Competitivas e Impacto</h2>
-    <div class="col-cell" style="margin-bottom: 35px; background: rgba(255,255,255,0.01);">
-        <ul>
-            <li><span class="bold-text">Capacidad de Retención Superior:</span> Estructura dinámica optimizada para retener audiencias y potenciar el rendimiento dentro del algoritmo.</li>
-            <li><span class="bold-text">Efecto Multiplicador Orgánico:</span> Más de <span class="bold-text">27,700 compartidos</span> y <span class="bold-text">12,900 guardados</span> en los últimos 30 días avalan la alta viralidad del contenido.</li>
-            <li><span class="bold-text">Publicidad Integrada No Invasiva:</span> Las marcas se introducen de forma nativa a través del humor y situaciones cotidianas, garantizando una excelente recepción y clics en perfiles.</li>
-        </ul>
-    </div>
-
-    <h2>💎 Tarifas Comerciales (Paquetes Mensuales)</h2>
+    <h2>💎 Tarifas Comerciales (Paquetes Multiplataforma)</h2>
     <div class="table-container">
         <table class="price-table">
             <thead>
                 <tr>
-                    <th>Formato / Servicio</th>
-                    <th>Detalle del Contenido</th>
+                    <th>Formato / Alianza Comercial</th>
+                    <th>Estructura de la Campaña</th>
                     <th style="text-align: right; width: 110px;">Inversión</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><span class="bold-text">Paquete 1: Introducción (15 días)</span><br/><small style="color:#9ca3af;">Campañas Cortas / Lanzamientos</small></td>
-                    <td>• 2 Videos en TikTok (Publicidad indirecta / Humor nativo).<br>• 3 Historias en Instagram con link de redirección directo.<br>• Enlace oficial en Biografía por 15 días.</td>
+                    <td><span class="bold-text">Paquete 1: Introducción (15 días)</span><br/><small style="color:#9ca3af;">Campañas Cortas / Testeo de Producto</small></td>
+                    <td>• 2 Videos en TikTok (Mención orgánica o formato POV).<br>• 3 Historias en Instagram con sticker de enlace directo.<br>• Enlace oficial en Biografía por 15 días.</td>
                     <td style="text-align: right;"><span class="price-badge">$350 USD</span></td>
                 </tr>
                 <tr>
-                    <td><span class="bold-text">Paquete 2: Mensual Estándar</span><br/><small style="color:#9ca3af;">Recomendado para Continuidad</small></td>
-                    <td>• 4 Videos en TikTok (1 video semanal con mención orgánica).<br>• 6 Historias en Instagram enfocadas en fechas de alto impacto.<br>• Enlace oficial fijo en Biografía por 30 días.</td>
+                    <td><span class="bold-text">Paquete 2: Mensual Estándar</span><br/><small style="color:#9ca3af;">Recomendado para Posicionamiento Fijo</small></td>
+                    <td>• 4 Videos en TikTok (1 video semanal con guion adaptado).<br>• 6 Historias en Instagram distribuidas en días estratégicos.<br>• Enlace oficial fijo en Biografía por 30 días.</td>
                     <td style="text-align: right;"><span class="price-badge">$550 USD</span></td>
                 </tr>
                 <tr>
-                    <td><span class="bold-text">Paquete 3: Mensual Premium</span><br/><small style="color:#9ca3af;">Máxima Exposición y Conversión</small></td>
-                    <td>• 6 Videos en TikTok (Frecuencia alta para dominar tendencias).<br>• 10 Historias en Instagram con dinámicas interactivas y enlaces.<br>• Enlace oficial fijo en Biografía por 30 días.</td>
+                    <td><span class="bold-text">Paquete 3: Mensual Premium</span><br/><small style="color:#9ca3af;">Máxima Cobertura, Conversión e Impacto</small></td>
+                    <td>• 6 Videos en TikTok (Alta frecuencia para potenciar algoritmo).<br>• 10 Historias en Instagram con dinámicas, llamados a la acción y links.<br>• Enlace oficial fijo en Biografía por 30 días.</td>
                     <td style="text-align: right;"><span class="price-badge">$750 USD</span></td>
                 </tr>
             </tbody>
@@ -376,9 +350,9 @@
 
     <div class="footer-contact">
         <strong style="font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">📩 Contacto Comercial</strong><br/>
-        <p style="margin-top: 15px; margin-bottom: 5px;"><span class="bold-text">TikTok Oficial:</span> <a href="https://www.tiktok.com/@jjcofano" target="_blank" style="font-weight: bold; color: #ff0055;">@jjcofano</a></p>
+        <p style="margin-top: 15px; margin-bottom: 5px;"><span class="bold-text">Canal de TikTok:</span> <a href="https://www.tiktok.com/@jjcofano" target="_blank" style="font-weight: bold; color: #ff0055;">@jjcofano</a></p>
         <p style="margin-bottom: 20px;"><span class="bold-text">Ubicación:</span> Mérida, Venezuela</p>
-        <a class="btn-contact" href="mailto:jjcofanobooking@gmail.com">Contratar vía Correo</a>
+        <a class="btn-contact" href="mailto:jjcofanobooking@gmail.com">Enviar Correo Directo</a>
     </div>
 </div>
 
